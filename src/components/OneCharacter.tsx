@@ -6,8 +6,8 @@ import useComics from '../hooks/useComics'
 export default function OneCharacter() {
     const params = useParams()
     const { id } = params
-    const { data, error, isLoading } = useSWR('/findCharacterByCharacterId/' + id, () => findCharacterById(Number(id)))
-    const {comics} = useComics({listComics:data?.comics.items})
+    const { data, } = useSWR('/findCharacterByCharacterId/' + id, () => findCharacterById(Number(id)))
+    const { comics } = useComics({ listComics: data?.comics.items })
 
 
     useEffect(() => {
@@ -29,15 +29,15 @@ export default function OneCharacter() {
 
                     </div>
                     {
-                        comics && <p>{comics.map((comic:any,index:any)=>{
+                        comics && <p>{comics.map((comic: any, index: any) => {
                             return (
                                 <div key={index}>
                                     <p className='text-gray-600'>{comic.title}</p>
                                 </div>
                             )
-                         })}</p>
+                        })}</p>
                     }
-                     
+
                 </div>
             )
         }

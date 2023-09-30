@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback } from "react"
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/table";
 import './Characters.css'
-import { Chip, ChipProps, Pagination, Spinner, Tooltip, User } from "@nextui-org/react";
+import { Chip, Pagination, Spinner, Tooltip, User } from "@nextui-org/react";
 import { format } from 'date-fns'
 
 import React from "react";
 import { Character } from "../types/Character";
 
-const EyeIcon = (props: any) => (
+const EyeIcon = () => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -17,7 +17,6 @@ const EyeIcon = (props: any) => (
     role="presentation"
     viewBox="0 0 20 20"
     width="1em"
-    {...props}
   >
     <path
       d="M12.9833 10C12.9833 11.65 11.65 12.9833 10 12.9833C8.35 12.9833 7.01666 11.65 7.01666 10C7.01666 8.35 8.35 7.01666 10 7.01666C11.65 7.01666 12.9833 8.35 12.9833 10Z"
@@ -36,7 +35,7 @@ const EyeIcon = (props: any) => (
   </svg>
 );
 
-const ExternalLinkIcon = (props: any) => (
+const ExternalLinkIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
