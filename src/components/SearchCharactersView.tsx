@@ -1,21 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useCharacter } from '../hooks/useCharacters'
 import Characters from './Characters'
 import { Input } from "@nextui-org/input";
 import { SearchIcon } from './SearchIcon';
 import { Button } from "@nextui-org/button";
 
-function MainSearch() {
+function SearchCharactersView() {
   const [inputText, setInputText] = useState<string>('')
   const { getCharacter, loading, characters, page, setPage, totalPages } = useCharacter({ nameStartsWith: inputText })
 
   const handleInputChange = (event: any) => {
     setInputText(event.target.value)
   }
-
-  useEffect(() => {
-    document.title = `Marvel Api`
-  }, [])
 
   function handleSubmit(event: any) {
     setPage(1)
@@ -73,4 +69,4 @@ function MainSearch() {
   )
 }
 
-export default MainSearch
+export default SearchCharactersView
