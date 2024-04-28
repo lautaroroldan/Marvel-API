@@ -20,16 +20,17 @@ function SearchCharactersView() {
   }
 
   return (
-    <main className='mt-12 max-w-7xl ml-auto mr-auto'>
+    <main className='mt-8 max-w-5xl ml-auto mr-auto'>
       <div className='mb-12 px-4'>
         <form onSubmit={handleSubmit} className='flex justify-center items-center gap-4'>
           <Input
             type='text'
             label="Search"
             isClearable
+            labelPlacement='outside'
             value={inputText}
             onChange={handleInputChange}
-            radius="lg"
+            radius="sm"
             onClear={() => {
               setInputText('')
             }}
@@ -44,7 +45,6 @@ function SearchCharactersView() {
               innerWrapper: "bg-transparent",
               inputWrapper: [
                 "shadow-xs",
-                "rounded-xl",
                 "bg-default-200/50",
                 "dark:bg-default/60",
                 "backdrop-blur-xl",
@@ -61,7 +61,15 @@ function SearchCharactersView() {
               <SearchIcon className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
             }
           />
-          <Button type='submit' variant='ghost' color='danger'>Buscar</Button>
+          <Button
+            type='submit'
+            variant='solid'
+            color='danger'
+            radius='sm'
+            className='self-end'
+          >
+            Buscar
+          </Button>
         </form>
       </div>
       <Characters characters={characters} page={page} setPage={setPage} totalPages={totalPages} loading={loading} />

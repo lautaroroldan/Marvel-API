@@ -126,6 +126,8 @@ function ListOfCharacters({ characters, page, totalPages, setPage, loading }: { 
           wrapper: 'h-[400px]',
         }}
         bottomContentPlacement="outside"
+        radius="sm"
+        radioGroup="table"
         isHeaderSticky
         isCompact
         bottomContent={<BottomContent />}

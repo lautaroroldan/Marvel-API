@@ -47,7 +47,7 @@ export default function OneCharacter() {
     }
 
     return (
-        <div className='p-4'>
+        <div className='max-w-5xl mx-auto'>
             {renderCharacter()}
         </div>
     )
