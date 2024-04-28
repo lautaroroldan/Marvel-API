@@ -44,7 +44,7 @@ const ExternalLinkIcon = () => (
   </svg>
 )
 
-function ListOfCharacters({ characters, page, totalPages, setPage, loading }: any) {
+function ListOfCharacters({ characters, page, totalPages, setPage, loading }: { characters: Character[], page: number, totalPages: number, setPage: any, loading: any }) {
 
   const renderCell = useCallback((user: Character, columnKey: React.Key) => {
     switch (columnKey) {
@@ -100,22 +100,33 @@ function ListOfCharacters({ characters, page, totalPages, setPage, loading }: an
     { name: "ACTIONS", uid: "actions" },
   ];
 
+  const BottomContent = () => {
+    if (totalPages == 0) return <></>
+    return (
+      <div className="flex w-full justify-center">
+        <Pagination
+          isCompact
+          defaultValue={1}
+          showControls
+          showShadow
+          color="danger"
+          page={page}
+          total={totalPages}
+          onChange={(page) => setPage(page)}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="px-4">
-      <Table aria-label="Example table with custom cells" bottomContent={
-        <div className="flex w-full justify-center">
-          <Pagination
-            isCompact
-            defaultValue={1}
-            showControls
-            showShadow
-            color="danger"
-            page={page}
-            total={totalPages}
-            onChange={(page) => setPage(page)}
-          />
-        </div>
-      }
+      <Table
+        aria-label="Example table with custom cells"
+        classNames={{
+          wrapper: 'h-[400px]',
+        }}
+        bottomContentPlacement="outside"
+        bottomContent={<BottomContent />}
       >
         <TableHeader columns={columns}>
           {(column) => (
@@ -154,4 +165,5 @@ export default function Characters({ characters, page, setPage, totalPages, load
     <ListOfCharacters characters={characters} page={page} setPage={setPage} totalPages={totalPages} loading={loading} />
   )
 }
+
 
