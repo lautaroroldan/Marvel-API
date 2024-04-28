@@ -4,7 +4,7 @@ import { getAllCharacters } from "../services/CharacterService"
 export function useCharacter({ nameStartsWith = "", }) {
   const [characters, setCharacters] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   let limit = 20
   let offset = (page - 1) * limit

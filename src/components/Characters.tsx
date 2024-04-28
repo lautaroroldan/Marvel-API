@@ -94,10 +94,10 @@ function ListOfCharacters({ characters, page, totalPages, setPage, loading }: { 
     }
   }, []);
   const columns = [
-    { name: "NAME", uid: "name" },
-    { name: "MODIFIED", uid: "modified" },
+    { name: "NOMBRE", uid: "name" },
+    { name: "MODIFICADO", uid: "modified" },
     { name: "COMICS", uid: "comics" },
-    { name: "ACTIONS", uid: "actions" },
+    { name: "ACCIONES", uid: "actions" },
   ];
 
   const BottomContent = () => {
@@ -106,9 +106,9 @@ function ListOfCharacters({ characters, page, totalPages, setPage, loading }: { 
       <div className="flex w-full justify-center">
         <Pagination
           isCompact
-          defaultValue={1}
           showControls
-          showShadow
+          initialPage={page}
+          disableAnimation
           color="danger"
           page={page}
           total={totalPages}
@@ -126,6 +126,8 @@ function ListOfCharacters({ characters, page, totalPages, setPage, loading }: { 
           wrapper: 'h-[400px]',
         }}
         bottomContentPlacement="outside"
+        isHeaderSticky
+        isCompact
         bottomContent={<BottomContent />}
       >
         <TableHeader columns={columns}>
