@@ -3,7 +3,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import { Spinner } from "@nextui-org/spinner";
-
+import { SpeedInsights } from "@vercel/speed-insights/react"
 const Character = lazy(() => import('./components/OneCharacter'))
 const CharactersView = lazy(() => import('./components/SearchCharactersView'))
 function App() {
@@ -31,6 +31,7 @@ function App() {
           <Route path="/characters/:id" element={<Character />} />
         </Routes>
       </Suspense>
+      <SpeedInsights />
     </>
   )
 }
